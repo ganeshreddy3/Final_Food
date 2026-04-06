@@ -219,8 +219,11 @@ const VerifyPage = () => {
         open={showReportDialog}
         onOpenChange={setShowReportDialog}
         productName={extractedDetails?.productName}
+<<<<<<< HEAD
         brandName={extractedDetails?.manufacturer}
         fssaiNumber={extractedDetails?.licenseNumber}
+=======
+>>>>>>> 278e70126be18cf1dfd63e57a48957945fca8a04
       />
     </div>
   );

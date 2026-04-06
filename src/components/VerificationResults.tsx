@@ -249,10 +249,19 @@ export function VerificationResults({ result, details, onReport, onReset }: Veri
         <Button onClick={onReset} variant="outline" size="lg">
           Verify Another Product
         </Button>
+<<<<<<< HEAD
         <Button onClick={onReport} variant="destructive" size="lg">
           <AlertTriangle className="w-4 h-4 mr-2" />
           Report This Product
         </Button>
+=======
+        {result.status !== 'genuine' && (
+          <Button onClick={onReport} variant="destructive" size="lg">
+            <AlertTriangle className="w-4 h-4 mr-2" />
+            Report This Product
+          </Button>
+        )}
+>>>>>>> 278e70126be18cf1dfd63e57a48957945fca8a04
       </div>
     </div>
   );

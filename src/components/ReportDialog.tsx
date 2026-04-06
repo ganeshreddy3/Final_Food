@@ -1,6 +1,9 @@
 import { useState } from 'react';
 import { AlertTriangle, Send } from 'lucide-react';
+<<<<<<< HEAD
 import { useSubmitFakeReport } from '@/hooks/useProducts';
+=======
+>>>>>>> 278e70126be18cf1dfd63e57a48957945fca8a04
 import {
   Dialog,
   DialogContent,
@@ -19,18 +22,27 @@ interface ReportDialogProps {
   open: boolean;
   onOpenChange: (open: boolean) => void;
   productName?: string;
+<<<<<<< HEAD
   brandName?: string;
   fssaiNumber?: string;
 }
 
 export function ReportDialog({ open, onOpenChange, productName, brandName, fssaiNumber }: ReportDialogProps) {
+=======
+}
+
+export function ReportDialog({ open, onOpenChange, productName }: ReportDialogProps) {
+>>>>>>> 278e70126be18cf1dfd63e57a48957945fca8a04
   const [reason, setReason] = useState('');
   const [evidence, setEvidence] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+<<<<<<< HEAD
   const submitReport = useSubmitFakeReport();
 
+=======
+>>>>>>> 278e70126be18cf1dfd63e57a48957945fca8a04
   const handleSubmit = async () => {
     if (!reason.trim()) {
       toast({
@@ -43,6 +55,7 @@ export function ReportDialog({ open, onOpenChange, productName, brandName, fssai
 
     setIsSubmitting(true);
     
+<<<<<<< HEAD
     try {
       await submitReport.mutateAsync({
         product_name: productName || 'Unknown Product',
@@ -69,6 +82,20 @@ export function ReportDialog({ open, onOpenChange, productName, brandName, fssai
     } finally {
       setIsSubmitting(false);
     }
+=======
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    toast({
+      title: "Report submitted",
+      description: "Thank you for helping us maintain product authenticity. Our team will review your report.",
+    });
+    
+    setIsSubmitting(false);
+    setReason('');
+    setEvidence('');
+    onOpenChange(false);
+>>>>>>> 278e70126be18cf1dfd63e57a48957945fca8a04
   };
 
   return (
@@ -86,12 +113,19 @@ export function ReportDialog({ open, onOpenChange, productName, brandName, fssai
         </DialogHeader>
         
         <div className="space-y-4 py-4">
+<<<<<<< HEAD
           {(productName || brandName || fssaiNumber) && (
             <div className="p-3 rounded-lg bg-muted flex flex-col gap-1 text-sm">
               <Label className="text-xs text-muted-foreground mb-1">Product Details</Label>
               {productName && <p><span className="font-medium text-xs text-muted-foreground w-16 inline-block">Name:</span> {productName}</p>}
               {brandName && <p><span className="font-medium text-xs text-muted-foreground w-16 inline-block">Brand:</span> {brandName}</p>}
               {fssaiNumber && <p><span className="font-medium text-xs text-muted-foreground w-16 inline-block">FSSAI:</span> <span className="font-mono">{fssaiNumber}</span></p>}
+=======
+          {productName && (
+            <div className="p-3 rounded-lg bg-muted">
+              <Label className="text-xs text-muted-foreground">Product</Label>
+              <p className="font-medium">{productName}</p>
+>>>>>>> 278e70126be18cf1dfd63e57a48957945fca8a04
             </div>
           )}
           
